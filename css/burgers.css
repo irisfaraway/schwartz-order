@@ -1,3 +1,37 @@
 body {
-  font-family: "Comic Sans MS"
+  font-family: "Comic Sans MS";
+  padding: 0 50px;
+  background-image: url("../img/schwartz-logo.png");
+}
+
+h1, h2, h3 {
+  color: #ff0000;
+  background-color: #ffff00;
+  padding: 10px;
+  border-bottom: 5px solid #ff0000;
+  border-right: 5px solid #ff0000;
+}
+
+a.button {
+  padding: 10px;
+  text-decoration: none;
+  color: #ffff00;
+  background-color: #ff0000;
+  border-bottom: 5px solid #ffff00;
+  border-right: 5px solid #ffff00;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+a.button:hover {
+  color: #ff0000;
+  background-color: #ffff00;
+  border-bottom: 5px solid #ff0000;
+  border-right: 5px solid #ff0000;
+}
+
+img#trumpet-cat {
+  position: fixed;
+  bottom: 0;
+  right: 0;
 }
