@@ -1,7 +1,9 @@
 body {
   font-family: "Comic Sans MS";
   padding: 0 50px;
-  background-image: url("../img/schwartz-logo.png");
+  background-color: #004400;
+  background-image: url("../img/burger-bounce.gif");
+  /*background-image: url("../img/schwartz-logo.png");*/
 }
 
 h1, h2, h3 {
@@ -10,6 +12,14 @@ h1, h2, h3 {
   padding: 10px;
   border-bottom: 5px solid #ff0000;
   border-right: 5px solid #ff0000;
+  margin: 0 0 20px 0;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-family: "Impact";
+  font-style: oblique;
+  font-size: 72px;
 }
 
 a.button {
@@ -28,6 +38,18 @@ a.button:hover {
   background-color: #ffff00;
   border-bottom: 5px solid #ff0000;
   border-right: 5px solid #ff0000;
+}
+
+div.chart {
+  margin-bottom: 20px;
+}
+
+div.side-by-side {
+  display: block;
+}
+
+div.side-by-side div {
+  display: inline-block;
 }
 
 img#trumpet-cat {

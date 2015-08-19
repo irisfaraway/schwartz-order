@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>ORDER SOME SCHWARTZ</title>
+    <title>SCHWARTZ DASHBOARD</title>
     <link rel="stylesheet" href="css/burgers.css" />
 
 <!--Load the AJAX API-->
@@ -14,14 +14,42 @@
     // Set a callback to run when the Google Visualization API is loaded.
     google.setOnLoadCallback(initialiseBurgerType);
     google.setOnLoadCallback(initialiseSingleDouble);
+    google.setOnLoadCallback(initialiseDipYN);
+    google.setOnLoadCallback(initialiseDipPop);
+    google.setOnLoadCallback(initialiseSideYN);
+    google.setOnLoadCallback(initialiseSidePop);
     // Display options for charts
     var burgerTypeOptions = {
-        width: 800,
-        height: 400
+        width: 500,
+        height: 400,
+        title: "Popularity of different burgers"
     };
     var singleDoubleOptions = {
-        width: 800,
-        height: 400
+        width: 500,
+        height: 400,
+        title: "Single or double patties"
+    };
+    var sideYNOptions = {
+        width: 500,
+        height: 400,
+        title: "Orders with sides"
+    };
+    var sidePopOptions = {
+        width: 500,
+        height: 400,
+        title: "Sides selected",
+        legend: "none"
+    };
+    var dipYNOptions = {
+        width: 500,
+        height: 400,
+        title: "Orders with dips"
+    }
+    var dipPopOptions = {
+        width: 500,
+        height: 400,
+        title: "Dips selected",
+        legend: "none"
     };
     // Burger popularity
     function initialiseBurgerType() {
@@ -66,20 +94,121 @@
         var singleDoubleChart = new google.visualization.PieChart(document.getElementById('single_double_div'));
         singleDoubleChart.draw(singleDoubleData, singleDoubleOptions);
     };
+
+    // Sides - yes or no?
+    function initialiseSideYN() {
+        var opts = {
+            sendMethod: 'auto'
+        };
+        // Replace the data source URL on next line with your data source URL.
+        var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1dpWwI4s9M-sXPYzVQAvqqfC7aZrEa0WJUWaopmODydU/gviz/tq?gid=878775757&headers=1&tq=&range=A:B', opts);
+        // Optional request to return only these columns.
+        query.setQuery('select A,B');
+        // Send the query with a callback function.
+        query.send(handleQueryResponseSideYN);
+    };
+    function handleQueryResponseSideYN(response) {
+        if (response.isError()) {
+            alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+            return;
+        }
+        var sideYNData = response.getDataTable();
+        var sideYNChart = new google.visualization.PieChart(document.getElementById('side_yn_div'));
+        sideYNChart.draw(sideYNData, sideYNOptions);
+    };
+
+    // Side popularity
+    function initialiseSidePop() {
+        var opts = {
+            sendMethod: 'auto'
+        };
+        // Replace the data source URL on next line with your data source URL.
+        var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1dpWwI4s9M-sXPYzVQAvqqfC7aZrEa0WJUWaopmODydU/gviz/tq?gid=878775757&headers=1&tq=&range=D:E', opts);
+        // Optional request to return only these columns.
+        query.setQuery('select D,E');
+        // Send the query with a callback function.
+        query.send(handleQueryResponseSidePop);
+    };
+    function handleQueryResponseSidePop(response) {
+        if (response.isError()) {
+            alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+            return;
+        }
+        var sidePopData = response.getDataTable();
+        var sidePopChart = new google.visualization.ColumnChart(document.getElementById('side_pop_div'));
+        sidePopChart.draw(sidePopData, sidePopOptions);
+    };
+
+    // Dip popularity
+    function initialiseDipYN() {
+        var opts = {
+            sendMethod: 'auto'
+        };
+        // Replace the data source URL on next line with your data source URL.
+        var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1dpWwI4s9M-sXPYzVQAvqqfC7aZrEa0WJUWaopmODydU/gviz/tq?gid=570951389&headers=1&tq=&range=A:B', opts);
+        // Optional request to return only these columns.
+        query.setQuery('select A,B');
+        // Send the query with a callback function.
+        query.send(handleQueryResponseDipYN);
+    };
+    function handleQueryResponseDipYN(response) {
+        if (response.isError()) {
+            alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+            return;
+        }
+        var dipYNData = response.getDataTable();
+        var dipYNChart = new google.visualization.PieChart(document.getElementById('dip_yn_div'));
+        dipYNChart.draw(dipYNData, dipYNOptions);
+    };
+
+    // Dip popularity
+    function initialiseDipPop() {
+        var opts = {
+            sendMethod: 'auto'
+        };
+        // Replace the data source URL on next line with your data source URL.
+        var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1dpWwI4s9M-sXPYzVQAvqqfC7aZrEa0WJUWaopmODydU/gviz/tq?gid=570951389&headers=1&tq=&range=D:E', opts);
+        // Optional request to return only these columns.
+        query.setQuery('select D,E');
+        // Send the query with a callback function.
+        query.send(handleQueryResponseDipPop);
+    };
+    function handleQueryResponseDipPop(response) {
+        if (response.isError()) {
+            alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+            return;
+        }
+        var dipPopData = response.getDataTable();
+        var dipPopChart = new google.visualization.ColumnChart(document.getElementById('dip_pop_div'));
+        dipPopChart.draw(dipPopData, dipPopOptions);
+    };
+
     </script>
 
   </head>
   <body>
     <img src="img/trumpet-cat.gif" id="trumpet-cat">
 
-    <h1>LET'S GET SCHWARTZ</h1>
+    <h1>Let's get Schwartz Bros</h1>
     <a href="order.html" class="button">Place an order</a>
+    <a href="https://docs.google.com/spreadsheets/d/1dpWwI4s9M-sXPYzVQAvqqfC7aZrEa0WJUWaopmODydU/edit#gid=531564633" class="button">Show me the data</a>
     
-    <h2>What kind of burger?</h2>
-    <div id="burger_type_div"></div>
+    <h2>Burger breakdown</h2>
+    <div class="side-by-side">
+        <div class="chart" id="burger_type_div"></div>
+        <div class="chart" id="single_double_div"></div>
+    </div>
 
-    <h2>Singles or doubles?</h2>
-    <div id="single_double_div"></div>
+    <h2>Do we want fries with that?</h2>
+    <div class="side-by-side">
+        <div class="chart" id="side_yn_div"></div>
+        <div class="chart" id="side_pop_div"></div>
+    </div>
 
+    <h2>Which dips are hits?</h2>
+    <div class="side-by-side">
+        <div class="chart" id="dip_yn_div"></div>
+        <div class="chart" id="dip_pop_div"></div>
+    </div>
   </body>
 </html>
