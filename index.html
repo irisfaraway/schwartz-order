@@ -6,6 +6,71 @@
     <title>SCHWARTZ TIME</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
+
+<!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+    // Load the Visualization API and the core package.
+    google.load('visualization', '1.0', {
+        'packages': ['corechart']
+    });
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(initialiseBurgerType);
+    google.setOnLoadCallback(initialiseSingleDouble);
+    // Display options for charts
+    var burgerTypeOptions = {
+        width: 800,
+        height: 400
+    };
+    var singleDoubleOptions = {
+        width: 800,
+        height: 400
+    };
+    // Burger popularity
+    function initialiseBurgerType() {
+        var opts = {
+            sendMethod: 'auto'
+        };
+        // Replace the data source URL on next line with your data source URL.
+        var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1dpWwI4s9M-sXPYzVQAvqqfC7aZrEa0WJUWaopmODydU/gviz/tq?gid=1607039831&headers=1&tq=&range=A:B', opts);
+        // Optional request to return only these columns.
+        query.setQuery('select A,B');
+        // Send the query with a callback function.
+        query.send(handleQueryResponseBurgerType);
+    };
+    function handleQueryResponseBurgerType(response) {
+        if (response.isError()) {
+            alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+            return;
+        }
+        var burgerTypeData = response.getDataTable();
+        var burgerTypeChart = new google.visualization.PieChart(document.getElementById('burger_type_div'));
+        burgerTypeChart.draw(burgerTypeData, burgerTypeOptions);
+    };
+
+    // Single or double burger?
+    function initialiseSingleDouble() {
+        var opts = {
+            sendMethod: 'auto'
+        };
+        // Replace the data source URL on next line with your data source URL.
+        var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1dpWwI4s9M-sXPYzVQAvqqfC7aZrEa0WJUWaopmODydU/gviz/tq?gid=1607039831&headers=1&tq=&range=D:E', opts);
+        // Optional request to return only these columns.
+        query.setQuery('select D,E');
+        // Send the query with a callback function.
+        query.send(handleQueryResponseSingleDouble);
+    };
+    function handleQueryResponseSingleDouble(response) {
+        if (response.isError()) {
+            alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+            return;
+        }
+        var singleDoubleData = response.getDataTable();
+        var singleDoubleChart = new google.visualization.PieChart(document.getElementById('single_double_div'));
+        singleDoubleChart.draw(singleDoubleData, singleDoubleOptions);
+    };
+    </script>
+
   </head>
   <body>
     
@@ -19,7 +84,17 @@
     <div class="row">
       <div class="large-12 columns">
         <div class="panel">
-          <h2>Charts go here</h2>
+          <h2>What kind of burger?</h2>
+          <div id="burger_type_div"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="large-12 columns">
+        <div class="panel">
+          <h2>Singles or doubles?</h2>
+          <div id="single_double_div"></div>
         </div>
       </div>
     </div>
