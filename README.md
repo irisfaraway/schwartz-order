@@ -1,4 +1,4 @@
 # schwartz-order
-Sometimes we order Schwartz in the office. I wanted to make this unnecessarily complex and colourful.
+Sometimes at work we order burgers from Schwartz Bros. But why bother ordering burgers if you can't also visualise that data?
 
-This will use Foundation 5 and the Google Visualisation API. Ideally it'd be powered by Ruby as well but that's for the next phase.
+This runs off the Google Visualisation API and is horrible.
