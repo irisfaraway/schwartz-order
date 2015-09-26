@@ -23,12 +23,12 @@
 
 <p>
   <strong>Price (single):</strong>
-  £<%= @burger.price_single %>
+  £<%= number_with_precision(@burger.price_single, :precision => 2) %>
 </p>
 
 <p>
   <strong>Price (double):</strong>
-  £<%= @burger.price_double %>
+  £<%= number_with_precision(@burger.price_double, :precision => 2) %>
 </p>
 </div>
 

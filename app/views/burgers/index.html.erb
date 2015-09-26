@@ -22,8 +22,8 @@
         <td><%= burger.description %></td>
         <td><%= burger.vegetarian %></td>
         <td><%= burger.spicy %></td>
-        <td>£<%= burger.price_single %></td>
-        <td>£<%= burger.price_double %></td>
+        <td>£<%= number_with_precision(burger.price_single, :precision => 2) %></td>
+        <td>£<%= number_with_precision(burger.price_double, :precision => 2) %></td>
         <td><%= link_to 'Show', burger, class: 'button' %></td>
         <td><%= link_to 'Edit', edit_burger_path(burger), class: 'button' %></td>
         <td><%= link_to 'Destroy', burger, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button' %></td>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Burger', new_burger_path %>
+<%= link_to 'New Burger', new_burger_path, class: 'button' %>
