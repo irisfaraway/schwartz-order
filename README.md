@@ -1,4 +1,9 @@
 # schwartz-order
-Sometimes at work we order burgers from Schwartz Bros. But why bother ordering burgers if you can't also visualise that data?
+Sometimes at work we order burgers from Schwartz Bros. We could write everything down or use a spreadsheet. But why not do it with Rails instead?
 
-This runs off the Google Visualisation API and is horrible.
+Still to come:
+
+- order form
+- stats
+- data visualisation
+- http://nthitz.github.io/turndownforwhatjs/
