@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<div class="show">
+  <p>
+    <strong>Name:</strong>
+    <%= @dip.name %>
+  </p>
+
+  <p>
+    <strong>Spicy:</strong>
+    <%= @dip.spicy %>
+  </p>
+
+  <p>
+    <strong>Price:</strong>
+    £<%= number_with_precision(@dip.price, :precision => 2) %>
+  </p>
+</div>
+
+<%= link_to 'Edit', edit_dip_path(@dip), class: 'button' %> |
+<%= link_to 'Back', dips_path, class: 'button' %>
