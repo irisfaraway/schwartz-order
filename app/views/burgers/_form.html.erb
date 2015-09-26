@@ -29,7 +29,7 @@
   </div>
   <div class="field">
     <%= f.label :price_single %><br>
-    £<%= f.text_field :price_double, :value => (number_with_precision(f.object.price_single, :precision => 2)) %>
+    £<%= f.text_field :price_single, :value => (number_with_precision(f.object.price_single, :precision => 2)) %>
   </div>
   <div class="field">
     <%= f.label :price_double %><br>

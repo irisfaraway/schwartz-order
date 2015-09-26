@@ -15,3 +15,8 @@ Dir[File.join(Rails.root, 'db', 'schwartz_products', 'dips.yml')].each do |seed_
   config = YAML::load_file(seed_file)
   Dip.create!(config)
 end
+
+Dir[File.join(Rails.root, 'db', 'schwartz_products', 'fillings.yml')].each do |seed_file|
+  config = YAML::load_file(seed_file)
+  Filling.create!(config)
+end
