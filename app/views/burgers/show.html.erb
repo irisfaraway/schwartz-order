@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<div class="show">
+  <p>
   <strong>Name:</strong>
   <%= @burger.name %>
 </p>
@@ -21,14 +22,15 @@
 </p>
 
 <p>
-  <strong>Price single:</strong>
-  <%= @burger.price_single %>
+  <strong>Price (single):</strong>
+  £<%= @burger.price_single %>
 </p>
 
 <p>
-  <strong>Price double:</strong>
-  <%= @burger.price_double %>
+  <strong>Price (double):</strong>
+  £<%= @burger.price_double %>
 </p>
+</div>
 
-<%= link_to 'Edit', edit_burger_path(@burger) %> |
-<%= link_to 'Back', burgers_path %>
+<%= link_to 'Edit', edit_burger_path(@burger), class: 'button' %>
+<%= link_to 'Back', burgers_path, class: 'button' %>

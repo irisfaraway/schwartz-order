@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Dir[File.join(Rails.root, 'db', 'schwartz_products', '*.yml')].each do |seed_file|
+  config = YAML::load_file(seed_file)
+  Burger.create!(config)
+end

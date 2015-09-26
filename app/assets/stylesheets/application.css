@@ -40,6 +40,12 @@ a.button:hover {
   border-right: 5px solid #ff0000;
 }
 
+div.show {
+  background-color: #ffff00;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
 div.chart, div.form {
   margin-bottom: 20px;
 }
@@ -58,7 +64,28 @@ img#trumpet-cat {
   right: 0;
 }
 
-table {
+table,
+form {
   background-color: #ffff00;
   width: 100%;
+  padding: 10px;
+}
+
+table a.button,
+form a.button {
+  margin-bottom: 0;
+  border: 0px;
+}
+
+table a.button:hover,
+form a.button:hover {
+  background-color: #004400;
+  border: 0px;
+}
+
+p#notice {
+  background-color: #ff0000;
+  color: #ffff00;
+  padding: 10px;
+  border-color: #ffff00;
 }

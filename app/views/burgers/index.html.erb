@@ -9,8 +9,8 @@
       <th>Description</th>
       <th>Vegetarian</th>
       <th>Spicy</th>
-      <th>Price single</th>
-      <th>Price double</th>
+      <th>Price (single)</th>
+      <th>Price (double)</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,11 +22,11 @@
         <td><%= burger.description %></td>
         <td><%= burger.vegetarian %></td>
         <td><%= burger.spicy %></td>
-        <td><%= burger.price_single %></td>
-        <td><%= burger.price_double %></td>
-        <td><%= link_to 'Show', burger %></td>
-        <td><%= link_to 'Edit', edit_burger_path(burger) %></td>
-        <td><%= link_to 'Destroy', burger, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>£<%= burger.price_single %></td>
+        <td>£<%= burger.price_double %></td>
+        <td><%= link_to 'Show', burger, class: 'button' %></td>
+        <td><%= link_to 'Edit', edit_burger_path(burger), class: 'button' %></td>
+        <td><%= link_to 'Destroy', burger, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button' %></td>
       </tr>
     <% end %>
   </tbody>
