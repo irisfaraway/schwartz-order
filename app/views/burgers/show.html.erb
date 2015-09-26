@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @burger.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @burger.description %>
+</p>
+
+<p>
+  <strong>Vegetarian:</strong>
+  <%= @burger.vegetarian %>
+</p>
+
+<p>
+  <strong>Spicy:</strong>
+  <%= @burger.spicy %>
+</p>
+
+<p>
+  <strong>Price single:</strong>
+  <%= @burger.price_single %>
+</p>
+
+<p>
+  <strong>Price double:</strong>
+  <%= @burger.price_double %>
+</p>
+
+<%= link_to 'Edit', edit_burger_path(@burger) %> |
+<%= link_to 'Back', burgers_path %>

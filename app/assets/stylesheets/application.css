@@ -1,0 +1,64 @@
+body {
+  font-family: "Comic Sans MS";
+  padding: 0 50px;
+  background-color: #004400;
+  background-image: url("/assets/burger-bounce.gif");
+  /*background-image: url("/assets/schwartz-logo.png");*/
+}
+
+h1, h2, h3 {
+  color: #ff0000;
+  background-color: #ffff00;
+  padding: 10px;
+  border-bottom: 5px solid #ff0000;
+  border-right: 5px solid #ff0000;
+  margin: 0 0 20px 0;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-family: "Impact";
+  font-style: oblique;
+  font-size: 72px;
+}
+
+a.button {
+  padding: 10px;
+  text-decoration: none;
+  color: #ffff00;
+  background-color: #ff0000;
+  border-bottom: 5px solid #ffff00;
+  border-right: 5px solid #ffff00;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+a.button:hover {
+  color: #ff0000;
+  background-color: #ffff00;
+  border-bottom: 5px solid #ff0000;
+  border-right: 5px solid #ff0000;
+}
+
+div.chart, div.form {
+  margin-bottom: 20px;
+}
+
+div.side-by-side {
+  display: block;
+}
+
+div.side-by-side div {
+  display: inline-block;
+}
+
+img#trumpet-cat {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
+table {
+  background-color: #ffff00;
+  width: 100%;
+}
