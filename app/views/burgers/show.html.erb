@@ -2,34 +2,34 @@
 
 <div class="show">
   <p>
-  <strong>Name:</strong>
-  <%= @burger.name %>
-</p>
+    <strong>Name:</strong>
+    <%= @burger.name %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @burger.description %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @burger.description %>
+  </p>
 
-<p>
-  <strong>Vegetarian:</strong>
-  <%= @burger.vegetarian %>
-</p>
+  <p>
+    <strong>Vegetarian:</strong>
+    <%= @burger.vegetarian %>
+  </p>
 
-<p>
-  <strong>Spicy:</strong>
-  <%= @burger.spicy %>
-</p>
+  <p>
+    <strong>Spicy:</strong>
+    <%= @burger.spicy %>
+  </p>
 
-<p>
-  <strong>Price (single):</strong>
-  £<%= number_with_precision(@burger.price_single, :precision => 2) %>
-</p>
+  <p>
+    <strong>Price (single):</strong>
+    £<%= number_with_precision(@burger.price_single, :precision => 2) %>
+  </p>
 
-<p>
-  <strong>Price (double):</strong>
-  £<%= number_with_precision(@burger.price_double, :precision => 2) %>
-</p>
+  <p>
+    <strong>Price (double):</strong>
+    £<%= number_with_precision(@burger.price_double, :precision => 2) %>
+  </p>
 </div>
 
 <%= link_to 'Edit', edit_burger_path(@burger), class: 'button' %>

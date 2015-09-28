@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<div class="show">
+  <p>
+    <strong>Name:</strong>
+    <%= @side.name %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @side.description %>
+  </p>
+
+  <p>
+    <strong>Spicy:</strong>
+    <%= @side.spicy %>
+  </p>
+
+  <p>
+    <strong>Price:</strong>
+    £<%= number_with_precision(@side.price, :precision => 2) %>
+  </p>
+</div>
+
+<%= link_to 'Edit', edit_side_path(@side), class: 'button' %>
+<%= link_to 'Back', sides_path, class: 'button' %>

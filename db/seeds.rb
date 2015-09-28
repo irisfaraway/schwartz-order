@@ -20,3 +20,8 @@ Dir[File.join(Rails.root, 'db', 'schwartz_products', 'fillings.yml')].each do |s
   config = YAML::load_file(seed_file)
   Filling.create!(config)
 end
+
+Dir[File.join(Rails.root, 'db', 'schwartz_products', 'sides.yml')].each do |seed_file|
+  config = YAML::load_file(seed_file)
+  Side.create!(config)
+end
